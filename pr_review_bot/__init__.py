@@ -6,11 +6,11 @@ from typing import Optional, List, Dict, Any, Union
 
 class Settings(BaseSettings):
     TOKEN: str
-    OPEN_AI_KEY: str
+    OPEN_AI_KEY: str = "no_key_needed"
     OWNER: str
     REPO_NAME: str
     PRICE_PER_TOKEN: float = 2.0000000000000002e-07
-    MODEL_NAME: str = "gpt-3.5-turbo"
+    MODEL_NAME: str = ""
 
     class Config:
         env_file = '.env'
