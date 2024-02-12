@@ -7,8 +7,6 @@ from typing import Optional, List, Dict, Any, Union
 class Settings(BaseSettings):
     TOKEN: str
     OPEN_AI_KEY: str = "no_key_needed"
-    OWNER: str
-    REPO_NAME: str
     PRICE_PER_TOKEN: float = 2.0000000000000002e-07
     MODEL_NAME: str = ""
 
@@ -19,7 +17,7 @@ class Settings(BaseSettings):
 settings = Settings()
 
 openai.api_key = settings.OPEN_AI_KEY
-repo = git.Repo.clone_from(f"https://github.com/{settings.OWNER}/{settings.REPO_NAME}.git", "/tmp/repo", branch="master")
+repo = git.Repo(os.getcwd())
 
 app = typer.Typer()
 
